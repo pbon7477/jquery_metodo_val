@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Ejercicio 1</title>
+    <link rel="stylesheet" href="css/usando_el_DOM3.css">
+</head>
+<body>
+
+    <div class="titulo">
+    <h1>Ejercicio 1</h1>
+    <p>Capturar Nombre, Apellido, teléfono y email.</p>
+    <p>Mostrar alertas cada uno de ellos con su correspondiente boton.</p>
+    </div>
+
+    <div class="contenedor">
+        <label for="nombre">Nombre: 
+            <input type="text" id="nombre">
+            <button id="btnGuardarNombre">guardar nombre</button>
+        </label>
+        <label for="apellido">Apellido: 
+            <input type="text" id="apellido">
+            <button id="btnGuardarApellido">guardar apellido</button>
+        </label>
+        <label for="telefono">teléfono: 
+            <input type="text" id="telefono">
+            <button id="btnGuardarTelefono">guardar teléfono</button>
+        </label>
+        <label for="email">Email: _ _    
+            <input type="email" name="email" id="email">
+            <button id="btnGuardarEmail">guardar email</button>
+        </label>
+
+    </div>
+
+    <div class="contenedor">
+        <div>
+        <button id="btnVerNombre">ver nombre</button>
+        <button id="btnVerApellido">ver apellido</button>
+        <button id="btnVerTelefono">ver teléfono</button>
+        <button id="btnVerEmail">ver email</button>
+        </div>
+        
+    </div>
+
+   <div class="contenedor">
+    <div>
+        <button id="reset">reset fields</button>
+    </div>
+   </div>
+    
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    
+    <script>
+        let nombre;
+        let apellido;
+        let telefono;
+        let email;
+        
+        
+        $(document).ready(function(){
+            $('#btnGuardarNombre').click(function(){
+                nombre = $('#nombre').val(); 
+               if(!nombre){
+                alert('Ingrese el nombre.');
+               }else{                
+                checkCompletion()
+               }
+            });
+            
+            $('#btnVerNombre').click(function(){
+                
+                if(!nombre){
+                    alert('No se ha guardado el nombre.');
+                }else{
+                    alert(nombre);
+                    console.log(nombre);
+                }
+            });
+
+
+            
+
+
+            $('#btnGuardarApellido').click(function(){
+                apellido = $('#apellido').val();
+                if(!apellido){
+                    alert('Ingrese el apellido');
+                }else{
+                    checkCompletion();
+                }
+            });
+            
+            $('#btnVerApellido').click(function(){
+                if(!apellido){
+                    alert('Cuidado!!..No se a guardado el apellido.');
+                }else{
+                    alert(apellido);
+                    console.log(apellido);
+                }
+            });
+            
+            
+            $('#btnGuardarTelefono').click(function(){
+                telefono = $('#telefono').val();
+                if(!telefono){
+                    alert('Ingrese el numero de telefono.');
+                }else{
+                     checkCompletion();
+                }
+                
+                
+            });
+            
+            $('#btnVerTelefono').click(function(){
+                if(!telefono){
+                    alert('No se a guardado el telefono.');
+               }else{
+                   alert(telefono);
+                   console.log(telefono);
+               }
+            });
+
+
+
+            $('#btnGuardarEmail').click(function(){
+                email = $('#email').val();
+                if(!email){
+                    alert('Ingrese el email.');
+                }else{
+                    checkCompletion();
+                }
+            });
+            
+            $('#btnVerEmail').click(function(){
+                if(!email){
+                    alert('No se ha guardado el email.');
+                }else{
+                    alert(email);
+                    console.log(email);
+                }
+            });
+            
+            
+            $('#reset').click(function(){
+                $('#nombre').val('');
+                nombre = '';
+                $('#apellido').val('');
+                apellido = '';
+                $('#telefono').val('');
+                telefono = '';
+                $('#email').val('');
+                email = '';
+            });
+            
+            
+            
+            
+        });
+        
+        function checkCompletion(){
+            if(nombre && apellido && telefono && email){
+            alert('Felicitaciones, a completado el formulario de inscripción 😎.');
+        }
+        }
+        
+        </script>
+
+</body>
+</html>
